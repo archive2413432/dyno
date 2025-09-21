@@ -87,7 +87,8 @@
       box-shadow:0 6px 18px rgba(0,0,0,0.08);
     }
 
-    .gallery-item video{
+    .gallery-item video,
+    .gallery-item iframe{
       width:100%;
       display:block;
       border-bottom:1px solid #e5e7eb;
@@ -124,7 +125,8 @@
       visibility:visible;
     }
 
-    .lightbox video{
+    .lightbox-content video,
+    .lightbox-content iframe{
       max-width:90%;
       max-height:90%;
       border-radius:6px;
@@ -145,7 +147,7 @@
 </head>
 <body>
   <header>
-    <h1>Media — videos</h1>
+    <h1>Media Viewer — Dyno Records</h1>
   </header>
 
   <main class="wrap">
@@ -166,11 +168,11 @@
         <video src="ssstik.io_@dynuhhchan_1750022476337.mp4" poster="thumb3.jpg"></video>
         <div class="caption">Video 3</div>
       </div>
-     <div class="gallery-item">
+      <div class="gallery-item">
         <video src="ssstik.io_@dynuhhchan_1750022517712.mp4" poster="thumb3.jpg"></video>
         <div class="caption">Video 3</div>
       </div>
-     <div class="gallery-item">
+      <div class="gallery-item">
         <video src="ssstik.io_@dynuhhchan_1750022562727.mp4" poster="thumb3.jpg"></video>
         <div class="caption">Video 3</div>
       </div>
@@ -178,77 +180,82 @@
         <video src="duyno.mp4" poster="thumb3.jpg"></video>
         <div class="caption">Video 3</div>
       </div>
- <div class="gallery-item">
+      <div class="gallery-item">
         <video src="DraftResource_1748895379.593256.mov" poster="thumb3.jpg"></video>
         <div class="caption">Video 3</div>
       </div>
-       <div class="gallery-item">
-        <video src="Talking to Dyno alleged of Zoosadism_worse things (and admits to it).mp4" poster="thumb3.jpg"></video>
-        <div class="caption">Video 3</div>
+      <div class="gallery-item">
+        <iframe src="https://drive.google.com/file/d/1_zIJOBvDOylQVVvwiejV6erH2kRy2R9g/preview"
+                width="100%" height="150" allow="autoplay"></iframe>
+        <div class="caption">Google Drive Video</div>
       </div>
- <div class="gallery-item">
+      <div class="gallery-item">
         <video src="7669373-e0055aaff13f09df3295ea0eb3cac573.mp4" poster="thumb3.jpg"></video>
         <div class="caption">Video 3</div>
       </div>
-       <div class="gallery-item">
+      <div class="gallery-item">
         <video src="copy_9364871E-E942-407B-8EAF-0783CF1270C1.mov" poster="thumb3.jpg"></video>
         <div class="caption">Video 3</div>
       </div>
-       <div class="gallery-item">
+      <div class="gallery-item">
         <video src="This is my cat, he is very happy.mp4" poster="thumb3.jpg"></video>
         <div class="caption">Video 3</div>
       </div>
-       <div class="gallery-item">
-        <video src="Addressing the Allegations..mp4" poster="thumb3.jpg"></video>
-        <div class="caption">Video 3</div>
+      <div class="gallery-item">
+        <iframe src="https://drive.google.com/file/d/1l_qPkJ3CsIrpz_YqF62gJ-pHoD_40r4a/preview"
+                width="100%" height="150" allow="autoplay"></iframe>
+        <div class="caption">Google Drive Video</div>
       </div>
- <div class="gallery-item">
+      <div class="gallery-item">
         <video src="29d055c9cb94435399720197a3e8c257.mov" poster="thumb3.jpg"></video>
         <div class="caption">Video 3</div>
       </div>
- <div class="gallery-item">
-        <video src="videoplayback.mp4" poster="thumb3.jpg"></video>
-        <div class="caption">Video 3</div>
-    </div>
-  </main>
+      <div class="gallery-item">
+        <iframe src="https://drive.google.com/file/d/1vbjO3-C2YUBs4JOuczLur2kG_jmkzSbL/preview"
+                width="100%" height="150" allow="autoplay"></iframe>
+        <div class="caption">Google Drive Video</div>
+      </div>
     </div>
   </main>
 
   <!-- Lightbox -->
   <div class="lightbox" id="lightbox">
     <span class="close" id="lightbox-close">&times;</span>
-    <video src="" controls autoplay id="lightbox-video"></video>
+    <div class="lightbox-content" id="lightbox-content"></div>
   </div>
 
   <script>
     const lightbox = document.getElementById('lightbox');
-    const lightboxVideo = document.getElementById('lightbox-video');
+    const lightboxContent = document.getElementById('lightbox-content');
     const closeBtn = document.getElementById('lightbox-close');
     const galleryItems = document.querySelectorAll('.gallery-item');
 
     galleryItems.forEach(item => {
-      const video = item.querySelector('video');
       item.addEventListener('click', () => {
-        lightboxVideo.src = video.src;
+        const video = item.querySelector('video');
+        const iframe = item.querySelector('iframe');
+
         lightbox.classList.add('active');
-        lightboxVideo.play();
+
+        if (video) {
+          lightboxContent.innerHTML = `<video src="${video.src}" controls autoplay style="max-width:90%;max-height:90%;border-radius:6px;box-shadow:0 4px 30px rgba(0,0,0,0.5);"></video>`;
+        } else if (iframe) {
+          lightboxContent.innerHTML = `<iframe src="${iframe.src}" width="960" height="540" allow="autoplay" style="border:none;max-width:90%;max-height:90%;"></iframe>`;
+        }
       });
     });
 
     closeBtn.addEventListener('click', () => {
-      lightboxVideo.pause();
-      lightboxVideo.src = '';
       lightbox.classList.remove('active');
+      lightboxContent.innerHTML = '';
     });
 
     lightbox.addEventListener('click', (e) => {
-      if(e.target === lightbox){
-        lightboxVideo.pause();
-        lightboxVideo.src = '';
+      if (e.target === lightbox) {
         lightbox.classList.remove('active');
+        lightboxContent.innerHTML = '';
       }
     });
   </script>
 </body>
 </html>
-
