@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Media Viewer — Dyno Records</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <style>
+    :root{
+      --bg:#f8f9fa;
+      --card:#ffffff;
+      --accent:#1d3557;
+      --accent2:#c1121f;
+      --muted:#555;
+      --radius:6px;
+      --shadow:0 2px 10px rgba(0,0,0,0.08);
+      font-family:"Source Sans Pro", ui-sans-serif, system-ui, Arial;
+    }
+
+    body{
+      margin:0;
+      background:var(--bg);
+      color:#111;
+      line-height:1.6;
+    }
+
+    header{
+      background:var(--accent);
+      color:#fff;
+      padding:20px 24px;
+      border-bottom:3px solid var(--accent2);
+    }
+
+    header h1{
+      margin:0;
+      font-size:22px;
+      font-weight:600;
+    }
+
+    .wrap{
+      max-width:900px;
+      margin:32px auto;
+      padding:0 20px;
+    }
+
+    .intro{
+      background:var(--card);
+      border:1px solid #e5e7eb;
+      border-left:6px solid var(--accent2);
+      border-radius:var(--radius);
+      padding:18px 20px;
+      box-shadow:var(--shadow);
+      margin-bottom:28px;
+    }
+
+    .intro h2{
+      margin:0 0 10px;
+      font-size:18px;
+      font-weight:600;
+      color:var(--accent);
+    }
+
+    .intro p{
+      margin:0;
+      font-size:15px;
+      color:var(--muted);
+    }
+
+    .gallery{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));
+      gap:16px;
+    }
+
+    .gallery-item{
+      background:var(--card);
+      border:1px solid #e5e7eb;
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      overflow:hidden;
+      transition:transform .1s ease, box-shadow .1s ease;
+      cursor:pointer;
+    }
+
+    .gallery-item:hover{
+      transform:translateY(-2px);
+      box-shadow:0 6px 18px rgba(0,0,0,0.08);
+    }
+
+    .gallery-item img{
+      width:100%;
+      display:block;
+      border-bottom:1px solid #e5e7eb;
+    }
+
+    .caption{
+      padding:8px 12px;
+      font-size:14px;
+      color:var(--muted);
+    }
+
+    /* Lightbox Styles */
+    .lightbox{
+      position:fixed;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+      background:rgba(0,0,0,0.9);
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      opacity:0;
+      visibility:hidden;
+      transition:opacity 0.3s ease;
+      z-index:9999;
+    }
+
+    .lightbox.active{
+      opacity:1;
+      visibility:visible;
+    }
+
+    .lightbox img{
+      max-width:90%;
+      max-height:90%;
+      border-radius:6px;
+      box-shadow:0 4px 30px rgba(0,0,0,0.5);
+    }
+
+    .lightbox .close{
+      position:absolute;
+      top:20px;
+      right:30px;
+      font-size:30px;
+      color:#fff;
+      cursor:pointer;
+      font-weight:bold;
+      user-select:none;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Media — general</h1>
+  </header>
+
+  <main class="wrap">
+    <section class="intro">
+      <h2>Image Archive</h2>
+      <p>
+        Browse collected media below. Click an image for a larger view if needed.
+      </p>
+    </section>
+
+  
+    <div class="gallery">
+      <div class="gallery-item">
+        <img src="IMG_6736.webp" alt="IMG_6736">
+        <div class="caption">IMG_6736</div>
+      </div>
+      <div class="gallery-item">
+        <img src="IMG_6737.webp" alt="IMG_6737">
+        <div class="caption">IMG_6737</div>
+      </div>
+      <div class="gallery-item">
+        <img src="IMG_7949.webp" alt="IMG_7949">
+        <div class="caption">IMG_7949</div>
+      </div>
+      <div class="gallery-item">
+        <img src="IMG_8017.webp" alt="IMG_8017">
+        <div class="caption">IMG_8017</div>
+      </div>
+      <div class="gallery-item">
+        <img src="remix-18a5c21a-f199-4ecc-a392-155bfecb00c0.webp" alt="remix-18a5c21a-f199-4ecc-a392-155bfecb00c0">
+        <div class="caption">remix-18a5c21a-f199-4ecc-a392-155bfecb00c0</div>
+      </div>
+      <div class="gallery-item">
+        <img src="Schermafbeelding_2025-06-02_144429.webp" alt="Schermafbeelding_2025-06-02_144429">
+        <div class="caption">Schermafbeelding_2025-06-02_144429</div>
+      </div>
+      <div class="gallery-item">
+        <img src="Screenshot_20250602-151728 (3) (1).png" alt="Screenshot_20250602-151728">
+        <div class="caption">Screenshot_20250602-151728 (3) (1)</div>
+      </div>
+      <div class="gallery-item">
+        <img src="temp_image_514CD3C4-C3F0-44A3-AB2D-650AD2AC8000.webp" alt="temp_image_514CD3C4-C3F0-44A3-AB2D-650AD2AC8000">
+        <div class="caption">temp_image_514CD3C4-C3F0-44A3-AB2D-650AD2AC8000</div>
+      </div>
+      <div class="gallery-item">
+        <img src="temp_image_78335E46-6B1E-4999-B3A5-77EAD1378900.webp" alt="temp_image_78335E46-6B1E-4999-B3A5-77EAD1378900">
+        <div class="caption">temp_image_78335E46-6B1E-4999-B3A5-77EAD1378900</div>
+      </div>
+      <div class="gallery-item">
+        <img src="1754204699475.jpg" alt="1754204699475">
+        <div class="caption">1754204699475</div>
+      </div>
+      <div class="gallery-item">
+        <img src="IMG_7950.webp" alt="IMG_7950">
+        <div class="caption">IMG_7950</div>
+      </div>
+      <div class="gallery-item">
+        <img src="Screenshot_20250527-175421.Discord.webp" alt="Screenshot_20250527-175421">
+        <div class="caption">Screenshot_20250527-175421</div>
+      </div>
+      <div class="gallery-item">
+        <img src="Screenshot_20250805-065840.png" alt="Screenshot_20250805-065840">
+        <div class="caption">Screenshot_20250805-065840</div>
+      </div>
+      <div class="gallery-item">
+        <img src="Screenshot_20250805-065850.png" alt="Screenshot_20250805-065850">
+        <div class="caption">Screenshot_20250805-065850</div>
+      </div>
+      <div class="gallery-item">
+        <img src="IMG_0276.webp" alt="IMG_0276">
+        <div class="caption">IMG_0276</div>
+      </div>
+      <div class="gallery-item">
+        <img src="IMG_0349.webp" alt="IMG_0349">
+        <div class="caption">IMG_0349</div>
+      </div>
+      <div class="gallery-item">
+        <img src="IMG_0363.webp" alt="IMG_0363">
+        <div class="caption">IMG_0363</div>
+      </div>
+      <div class="gallery-item">
+        <img src="IMG_0462.webp" alt="IMG_0462">
+        <div class="caption">IMG_0462</div>
+      </div>
+      <div class="gallery-item">
+        <img src="IMG_0632.webp" alt="IMG_0632">
+        <div class="caption">IMG_0632</div>
+      </div>
+      <div class="gallery-item">
+        <img src="IMG_5998.webp" alt="IMG_5998">
+        <div class="caption">IMG_5998</div>
+      </div>
+      <div class="gallery-item">
+        <img src="IMG_6685.webp" alt="IMG_6685">
+        <div class="caption">IMG_6685</div>
+      </div>
+    </div>
+  </main>
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox">
+    <span class="close" id="lightbox-close">&times;</span>
+    <img src="" alt="Zoomed Image" id="lightbox-img">
+  </div>
+
+  <script>
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const closeBtn = document.getElementById('lightbox-close');
+    const galleryItems = document.querySelectorAll('.gallery-item img');
+
+    galleryItems.forEach(img => {
+      img.addEventListener('click', () => {
+        lightboxImg.src = img.src;
+        lightbox.classList.add('active');
+      });
+    });
+
+    closeBtn.addEventListener('click', () => {
+      lightbox.classList.remove('active');
+      lightboxImg.src = '';
+    });
+
+    // Optional: click outside image to close
+    lightbox.addEventListener('click', (e) => {
+      if(e.target === lightbox){
+        lightbox.classList.remove('active');
+        lightboxImg.src = '';
+      }
+    });
+  </script>
+</body>
+</html>

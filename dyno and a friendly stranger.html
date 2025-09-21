@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Media Viewer — Dyno and Fitz Chat</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <style>
+    :root{
+      --bg:#f8f9fa;
+      --card:#ffffff;
+      --accent:#1d3557;
+      --accent2:#c1121f;
+      --muted:#555;
+      --radius:6px;
+      --shadow:0 2px 10px rgba(0,0,0,0.08);
+      font-family:"Source Sans Pro", ui-sans-serif, system-ui, Arial;
+    }
+
+    body{
+      margin:0;
+      background:var(--bg);
+      color:#111;
+      line-height:1.6;
+    }
+
+    header{
+      background:var(--accent);
+      color:#fff;
+      padding:20px 24px;
+      border-bottom:3px solid var(--accent2);
+    }
+
+    header h1{
+      margin:0;
+      font-size:22px;
+      font-weight:600;
+    }
+
+    .wrap{
+      max-width:900px;
+      margin:32px auto;
+      padding:0 20px;
+    }
+
+    .intro{
+      background:var(--card);
+      border:1px solid #e5e7eb;
+      border-left:6px solid var(--accent2);
+      border-radius:var(--radius);
+      padding:18px 20px;
+      box-shadow:var(--shadow);
+      margin-bottom:28px;
+    }
+
+    .intro h2{
+      margin:0 0 10px;
+      font-size:18px;
+      font-weight:600;
+      color:var(--accent);
+    }
+
+    .intro p{
+      margin:0;
+      font-size:15px;
+      color:var(--muted);
+    }
+
+    .gallery{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));
+      gap:16px;
+    }
+
+    .gallery-item{
+      background:var(--card);
+      border:1px solid #e5e7eb;
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      overflow:hidden;
+      transition:transform .1s ease, box-shadow .1s ease;
+      cursor:pointer;
+    }
+
+    .gallery-item:hover{
+      transform:translateY(-2px);
+      box-shadow:0 6px 18px rgba(0,0,0,0.08);
+    }
+
+    .gallery-item img{
+      width:100%;
+      display:block;
+      border-bottom:1px solid #e5e7eb;
+    }
+
+    .caption{
+      padding:8px 12px;
+      font-size:14px;
+      color:var(--muted);
+    }
+
+    /* Lightbox Styles */
+    .lightbox{
+      position:fixed;
+      top:0;
+      left:0;
+      width:100%;
+      height:100%;
+      background:rgba(0,0,0,0.9);
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      opacity:0;
+      visibility:hidden;
+      transition:opacity 0.3s ease;
+      z-index:9999;
+    }
+
+    .lightbox.active{
+      opacity:1;
+      visibility:visible;
+    }
+
+    .lightbox img{
+      max-width:90%;
+      max-height:90%;
+      border-radius:6px;
+      box-shadow:0 4px 30px rgba(0,0,0,0.5);
+    }
+
+    .lightbox .close{
+      position:absolute;
+      top:20px;
+      right:30px;
+      font-size:30px;
+      color:#fff;
+      cursor:pointer;
+      font-weight:bold;
+      user-select:none;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Media — dyno/stranger</h1>
+  </header>
+
+  <main class="wrap">
+    <section class="intro">
+      <h2>Chat Archive</h2>
+      <p>Screenshots from conversations between Dyno and a Friendly Stranger. Click any image to view in full size.</p>
+    </section>
+
+    <div class="gallery">
+      <!-- Screenshots -->
+      <div class="gallery-item"><img src="Screenshot_20250530-183753 (1).png"><div class="caption">183753</div></div>
+      <div class="gallery-item"><img src="Screenshot_20250530-184218 (1).png"><div class="caption">184218</div></div>
+      <div class="gallery-item"><img src="Screenshot_20250530-185035 (1).png"><div class="caption">185035</div></div>
+      <div class="gallery-item"><img src="Screenshot_20250530-193623 (1).png"><div class="caption">193623</div></div>
+      <div class="gallery-item"><img src="Screenshot_20250530-200057 (1).png"><div class="caption">200057</div></div>
+      <div class="gallery-item"><img src="Screenshot_20250530-200138 (1).png"><div class="caption">200138</div></div>
+      <div class="gallery-item"><img src="Screenshot_20250531-135140.png"><div class="caption">135140</div></div>
+      <div class="gallery-item"><img src="Screenshot_20250531-135155 (1).png"><div class="caption">135155 (1)</div></div>
+      <div class="gallery-item"><img src="Screenshot_20250531-135155.png"><div class="caption">135155</div></div>
+      <div class="gallery-item"><img src="Screenshot_20250531-135245.png"><div class="caption">135245</div></div>
+      <div class="gallery-item"><img src="Screenshot_20250531-135300.png"><div class="caption">135300</div></div>
+      <div class="gallery-item"><img src="Screenshot_20250601-221037.png"><div class="caption">221037</div></div>
+      <div class="gallery-item"><img src="Screenshot_20250601-234707.png"><div class="caption">234707</div></div>
+      <div class="gallery-item"><img src="Screenshot_20250602-112452 (1).png"><div class="caption">112452</div></div>
+      <div class="gallery-item"><img src="Screenshot_20250602-134542 (1).png"><div class="caption">134542</div></div>
+      <div class="gallery-item"><img src="Screenshot_20250602-134556 (1).png"><div class="caption">134556</div></div>
+      <div class="gallery-item"><img src="Screenshot_20250602-152950 (1).png"><div class="caption">152950</div></div>
+      <div class="gallery-item"><img src="Screenshot_20250602-155556.png"><div class="caption">155556</div></div>
+      <div class="gallery-item"><img src="Screenshot_20250602-160850.png"><div class="caption">160850</div></div>
+      <div class="gallery-item"><img src="Screenshot_20250602-161022.png"><div class="caption">161022</div></div>
+      <div class="gallery-item"><img src="Screenshot_20250602-161152.png"><div class="caption">161152</div></div>
+      <div class="gallery-item"><img src="Screenshot_20250602-184506.png"><div class="caption">184506</div></div>
+      <div class="gallery-item"><img src="Screenshot_20250602-200410.png"><div class="caption">200410</div></div>
+      <div class="gallery-item"><img src="Screenshot_20250602-200416.png"><div class="caption">200416</div></div>
+      <div class="gallery-item"><img src="Screenshot_20250602-200420.png"><div class="caption">200420</div></div>
+      <div class="gallery-item"><img src="Screenshot_20250602-200702.png"><div class="caption">200702</div></div>
+      <div class="gallery-item"><img src="Screenshot_20250602-200848.png"><div class="caption">200848</div></div>
+      <div class="gallery-item"><img src="Screenshot_20250602-201644.png"><div class="caption">201644</div></div>
+      <div class="gallery-item"><img src="Screenshot_20250602-210049.png"><div class="caption">210049</div></div>
+      <div class="gallery-item"><img src="Screenshot_20250605-121159.png"><div class="caption">121159</div></div>
+      <div class="gallery-item"><img src="Screenshot_20250605-121203.png"><div class="caption">121203</div></div>
+      <div class="gallery-item"><img src="Screenshot_20250605-121245.png"><div class="caption">121245</div></div>
+      <div class="gallery-item"><img src="Screenshot_20250605-121259.png"><div class="caption">121259</div></div>
+      <div class="gallery-item"><img src="Screenshot_20250605-121313.png"><div class="caption">121313</div></div>
+      <div class="gallery-item"><img src="Screenshot_20250605-121317.png"><div class="caption">121317</div></div>
+      <div class="gallery-item"><img src="Screenshot_20250605-121320.png"><div class="caption">121320</div></div>
+      <div class="gallery-item"><img src="Screenshot_20250605-121331.png"><div class="caption">121331</div></div>
+      <div class="gallery-item"><img src="Screenshot_20250605-121339.png"><div class="caption">121339</div></div>
+      <div class="gallery-item"><img src="Screenshot_20250605-121342.png"><div class="caption">121342</div></div>
+      <div class="gallery-item"><img src="Screenshot_20250605-121350.png"><div class="caption">121350</div></div>
+      <div class="gallery-item"><img src="Screenshot_20250605-121358.png"><div class="caption">121358</div></div>
+      <div class="gallery-item"><img src="Screenshot_20250605-121404.png"><div class="caption">121404</div></div>
+      <div class="gallery-item"><img src="Screenshot_20250605-121408.png"><div class="caption">121408</div></div>
+      <div class="gallery-item"><img src="Screenshot_20250605-121416.png"><div class="caption">121416</div></div>
+      <div class="gallery-item"><img src="Screenshot_20250605-121423.png"><div class="caption">121423</div></div>
+      <div class="gallery-item"><img src="Screenshot_20250606-120901 (1).png"><div class="caption">120901</div></div>
+      <div class="gallery-item"><img src="Screenshot_20250606-121413 (1).png"><div class="caption">121413</div></div>
+      <div class="gallery-item"><img src="Screenshot_20250606-121425 (1).png"><div class="caption">121425</div></div>
+      <div class="gallery-item"><img src="Screenshot_20250606-121430 (1).png"><div class="caption">121430</div></div>
+      <div class="gallery-item"><img src="Screenshot_20250606-122916.png"><div class="caption">122916</div></div>
+      <div class="gallery-item"><img src="Screenshot_20250608-190727.webp"><div class="caption">190727</div></div>
+      <div class="gallery-item"><img src="Screenshot_20250608-190815.webp"><div class="caption">190815</div></div>
+      <div class="gallery-item"><img src="Screenshot_20250611-170111.webp"><div class="caption">170111</div></div>
+      <div class="gallery-item"><img src="Screenshot_20250611-190817.webp"><div class="caption">190817</div></div>
+      <div class="gallery-item"><img src="Screenshot_20250611-191510.webp"><div class="caption">191510</div></div>
+      <div class="gallery-item"><img src="Screenshot_20250611-192641.webp"><div class="caption">192641</div></div>
+      <div class="gallery-item"><img src="Screenshot_20250612-181311.webp"><div class="caption">181311</div></div>
+      <div class="gallery-item"><img src="Screenshot_20250612-181501.webp"><div class="caption">181501</div></div>
+      <div class="gallery-item"><img src="Screenshot_20250612-181803.webp"><div class="caption">181803</div></div>
+      <div class="gallery-item"><img src="1Capture.PNG"><div class="caption">1Capture</div></div>
+      <div class="gallery-item"><img src="2Capture2.PNG"><div class="caption">2Capture</div></div>
+      <div class="gallery-item"><img src="1Capture2.PNG"><div class="caption">Capture</div></div>
+      <div class="gallery-item"><img src="download.png"><div class="caption">download</div></div>
+      <div class="gallery-item"><img src="Screenshot_20250530-183006 (1).png"><div class="caption">183006</div></div>
+      <div class="gallery-item"><img src="Screenshot_20250530-183014 (1).png"><div class="caption">183014</div></div>
+      <div class="gallery-item"><img src="Screenshot_20250530-183038 (1).png"><div class="caption">183038</div></div>
+      <div class="gallery-item"><img src="Screenshot_20250530-183055 (1).png"><div class="caption">183055</div></div>
+      <div class="gallery-item"><img src="Screenshot_20250530-183341 (1).png"><div class="caption">183341</div></div>
+      <div class="gallery-item"><img src="Screenshot_20250530-183540 (1).png"><div class="caption">183540</div></div>
+    </div>
+  </main>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox">
+    <span class="close" id="lightbox-close">&times;</span>
+    <img src="" alt="Zoomed Image" id="lightbox-img">
+  </div>
+
+  <script>
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const closeBtn = document.getElementById('lightbox-close');
+    const galleryItems = document.querySelectorAll('.gallery-item img');
+
+    galleryItems.forEach(img => {
+      img.addEventListener('click', () => {
+        lightboxImg.src = img.src;
+        lightbox.classList.add('active');
+      });
+    });
+
+    closeBtn.addEventListener('click', () => {
+      lightbox.classList.remove('active');
+      lightboxImg.src = '';
+    });
+
+    lightbox.addEventListener('click', (e) => {
+      if(e.target === lightbox){
+        lightbox.classList.remove('active');
+        lightboxImg.src = '';
+      }
+    });
+  </script>
+</body>
+</html>

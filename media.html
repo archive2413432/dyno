@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Media — Dyno Records</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <style>
+    :root{
+      --bg:#f8f9fa;
+      --card:#ffffff;
+      --accent:#1d3557;
+      --accent2:#c1121f;
+      --muted:#555;
+      --radius:6px;
+      --shadow:0 2px 10px rgba(0,0,0,0.08);
+      font-family:"Source Sans Pro", ui-sans-serif, system-ui, Arial;
+    }
+
+    body{
+      margin:0;
+      background:var(--bg);
+      color:#111;
+      line-height:1.6;
+    }
+
+    header{
+      background:var(--accent);
+      color:#fff;
+      padding:20px 24px;
+      border-bottom:3px solid var(--accent2);
+    }
+
+    header h1{
+      margin:0;
+      font-size:22px;
+      font-weight:600;
+    }
+
+    .wrap{
+      max-width:900px;
+      margin:32px auto;
+      padding:0 20px;
+    }
+
+    .intro{
+      background:var(--card);
+      border:1px solid #e5e7eb;
+      border-left:6px solid var(--accent2);
+      border-radius:var(--radius);
+      padding:18px 20px;
+      box-shadow:var(--shadow);
+      margin-bottom:28px;
+    }
+
+    .intro h2{
+      margin:0 0 10px;
+      font-size:18px;
+      font-weight:600;
+      color:var(--accent);
+    }
+
+    .intro p{
+      margin:0;
+      font-size:15px;
+      color:var(--muted);
+    }
+
+    ul.links{
+      list-style:none;
+      margin:0;
+      padding:0;
+      display:grid;
+      gap:14px;
+    }
+
+    ul.links li{
+      background:var(--card);
+      border:1px solid #e5e7eb;
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      transition:transform .1s ease, box-shadow .1s ease;
+    }
+
+    ul.links li:hover{
+      transform:translateY(-2px);
+      box-shadow:0 6px 18px rgba(0,0,0,0.08);
+    }
+
+    ul.links a{
+      display:block;
+      padding:14px 18px;
+      text-decoration:none;
+      color:var(--accent);
+      font-weight:600;
+    }
+
+    ul.links a span{
+      display:block;
+      font-size:13px;
+      font-weight:normal;
+      color:var(--muted);
+      margin-top:4px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>index — media</h1>
+  </header>
+
+  <main class="wrap">
+    <section class="intro">
+      <h2>Media Index</h2>
+      <p>
+        This page provides links to multiple media-related pages.  
+        Click a link below to view the corresponding content.
+      </p>
+    </section>
+
+    <ul class="links">
+      <li>
+        <a href="general.html">
+          general
+          <span>general images</span>
+        </a>
+      </li>
+      <li>
+        <a href="illistrations.html">
+          illistrations
+          <span>illistrations by dyno</span>
+        </a>
+      </li>
+      <li>
+        <a href="audio.html">
+          audio
+          <span>voice messages</span>
+        </a>
+      </li>
+      <li>
+        <a href="account screenshots.html">
+         account screenshots
+          <span> screenshots of profiles</span>
+        </a>
+      </li>
+      <li>
+        <a href="unkown origin or unsorted.html">
+          Unknown Origin / Unsorted
+          <span>random unsorted images</span>
+        </a>
+      </li>
+      <li>
+        <a href="chat.html">
+          Chat 
+          <span>screenshots of chats</span>
+        </a>
+      </li>
+      <li>
+        <a href="videos.html">
+          videos
+          <span>videos about and or with dyno</span>
+        </a>
+      </li>
+    </ul>
+  </main>
+</body>
+</html>
